@@ -23,5 +23,7 @@ from users import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("home/", views.home),
+    path("list/", views.list),
+    path("details/<int:id>", views.details),
     path("about/", views.about),
 ]
