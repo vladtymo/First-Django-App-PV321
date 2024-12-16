@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django App{% endblock %}</title>
+
+</head>
+
+<body>
+    <header>
+        <h1>Users List</h1>
+    </header>
+
+    <main>
+        <!-- {% block content %} -->
+        <ul>
+            {% for user in users %}
+            <li>[{{ user.id }}] {{ user.name }} {{ user.email }}</li>
+            {% endfor %}
+        </ul>
+        <!-- {% endblock %} -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Education Django App for PD322</p>
+    </footer>
+</body>
+
+</html>
