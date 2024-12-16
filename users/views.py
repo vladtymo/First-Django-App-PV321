@@ -1,9 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from users.models import User
+
 
 # Create your views here.
 def home(request):
+    users = User.objects.all()
     return render(request, "index.html", {"users": users})
 
 
