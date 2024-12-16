@@ -1,0 +1,52 @@
+[
+    {
+        "pk": 1,
+        "model": "users.User",
+        "fields": {
+            "name": "John Doe",
+            "email": "john.doe@example.com",
+            "birthdate": "1990-01-01",
+            "username": "johndoe"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "users.User",
+        "fields": {
+            "name": "Jane Smith",
+            "email": "jane.smith@example.com",
+            "birthdate": "1985-05-15",
+            "username": "janesmith"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "users.User",
+        "fields": {
+            "name": "Alice Johnson",
+            "email": "alice.johnson@example.com",
+            "birthdate": "1992-07-20",
+            "username": "alicejohnson"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "users.User",
+        "fields": {
+            "name": "Bob Brown",
+            "email": "bob.brown@example.com",
+            "birthdate": "1988-03-30",
+            "username": "bobbrown"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "users.User",
+        "fields": {
+            "name": "Charlie Davis",
+            "email": "charlie.davis@example.com",
+            "birthdate": "1995-11-25",
+            "username": "charliedavis"
+        }
+    }
+]
