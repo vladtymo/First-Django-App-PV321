@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from users.forms import CreateUser
 from users.models import User
 
 
@@ -8,6 +9,20 @@ from users.models import User
 def home(request):
     users = User.objects.all()
     return render(request, "index.html", {"users": users})
+
+
+def create(request):
+    form = CreateUser()
+
+    # Check if the request method is POST (create new user)
+    if request.method == "POST":
+        form = CreateUser(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            form.save()
+            return redirect("/users/home")
+
+    return render(request, "create.html", {"form": form})
 
 
 def details(request, id):
