@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from users.models import User
 
@@ -10,19 +10,19 @@ def home(request):
     return render(request, "index.html", {"users": users})
 
 
-def list(request):
-
-    html = "<h1>Users</h1>"
-    html += "<ul>"
-    for user in users:
-        html += f"<li>{user['name']}</li>"
-    html += "</ul>"
-
-    return HttpResponse(html)
-
-
 def details(request, id):
-    return HttpResponse(f"User Details: ID - {id}")
+    user = User.objects.get(id=id)
+
+    return render(request, "details.html", {"user": user})
+
+
+def delete(request, id):
+    user = User.objects.get(id=id)
+
+    if user is not None:
+        user.delete()
+
+    return redirect("/users/home")
 
 
 def about(request):
