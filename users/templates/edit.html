@@ -1,0 +1,32 @@
+{% extends '_layout.html' %}
+
+{% block header %}Edit User{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" value={{form.name.value}} name="name" class="form-control" placeholder="Enter name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" value={{form.email.value}} name="email" class="form-control" placeholder="Enter email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Birthdate</label>
+        <input type="date" value={{form.birthdate.value | date:"Y-m-d"}} name="birthdate" class="form-control"
+            placeholder="Enter birthdate">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="username" value={{form.username.value}} name="username" class="form-control"
+            placeholder="Enter username">
+    </div>
+
+    <button class="btn btn-success">Edit</button>
+
+</form>
+
+{% endblock %}
