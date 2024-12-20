@@ -17,7 +17,7 @@ def create(request):
     # Check if the request method is POST (create new user)
     if request.method == "POST":
         form = CreateUser(request.POST)
-        print(form.errors)
+
         if form.is_valid():
             form.save()
             return redirect("/users/home")
