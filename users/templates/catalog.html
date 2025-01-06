@@ -7,7 +7,11 @@
     {% for user in users %}
     <div class="col">
         <div class="card h-100">
+            {% if user.avatar %}
+            <img src="{{user.avatar.url}}" class="card-img-top" alt="...">
+            {% else %}
             <img src="https://m.media-amazon.com/images/I/719uMEB4kiL._AC_UF1000,1000_QL80_.jpg" class="card-img-top" alt="...">
+            {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{user.name}}</h5>
                 <p class="card-text">{{user.email}} - {{user.birthdate|date}}</p>
@@ -18,3 +22,4 @@
 </div>
 
 {% endblock %}
+{% comment %} https://m.media-amazon.com/images/I/719uMEB4kiL._AC_UF1000,1000_QL80_.jpg {% endcomment %}

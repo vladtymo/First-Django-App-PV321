@@ -21,7 +21,7 @@ def create(request):
 
     # Check if the request method is POST (create new user)
     if request.method == "POST":
-        form = CreateUser(request.POST)
+        form = CreateUser(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
@@ -50,6 +50,9 @@ def edit(request, id):
 
 def details(request, id):
     user = User.objects.get(id=id)
+
+    print(user.avatar)
+    print(user.avatar.url)
 
     return render(request, "details.html", {"user": user, "return_url": "/users/home"})
 
