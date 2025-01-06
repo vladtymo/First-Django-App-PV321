@@ -40,6 +40,12 @@
     </nav>
 
     <div class="container my-3">
+        {% if return_url %}
+        <a href="{{return_url}}" class="btn btn-outline-dark">
+            <i class="bi bi-chevron-left"></i>
+        </a>
+        {% endif %}
+
         <h1>{% block header %}Title{% endblock %}</h1>
 
         <main>

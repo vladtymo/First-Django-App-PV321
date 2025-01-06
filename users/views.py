@@ -22,7 +22,7 @@ def create(request):
             form.save()
             return redirect("/users/home")
 
-    return render(request, "create.html", {"form": form})
+    return render(request, "create.html", {"form": form, "return_url": "/users/home"})
 
 
 def edit(request, id):
@@ -40,13 +40,13 @@ def edit(request, id):
             form.save()
             return redirect("/users/home")
 
-    return render(request, "edit.html", {"form": form})
+    return render(request, "edit.html", {"form": form, "return_url": "/users/home"})
 
 
 def details(request, id):
     user = User.objects.get(id=id)
 
-    return render(request, "details.html", {"user": user})
+    return render(request, "details.html", {"user": user, "return_url": "/users/home"})
 
 
 def delete(request, id):
