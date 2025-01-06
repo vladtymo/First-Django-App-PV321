@@ -1,0 +1,20 @@
+{% extends '_layout.html' %}
+
+{% block header %}Users Catalog{% endblock %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-6 g-4 user-catalog">
+    {% for user in users %}
+    <div class="col">
+        <div class="card h-100">
+            <img src="https://m.media-amazon.com/images/I/719uMEB4kiL._AC_UF1000,1000_QL80_.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{user.name}}</h5>
+                <p class="card-text">{{user.email}} - {{user.birthdate|date}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

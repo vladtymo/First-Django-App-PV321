@@ -3,6 +3,7 @@ from django.urls import path
 from users import views
 
 urlpatterns = [
+    path("", views.catalog),
     path("home/", views.home),
     path("create/", views.create),
     path("edit/<int:id>", views.edit),

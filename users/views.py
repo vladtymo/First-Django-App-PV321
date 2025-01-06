@@ -11,6 +11,11 @@ def home(request):
     return render(request, "index.html", {"users": users})
 
 
+def catalog(request):
+    users = User.objects.all()
+    return render(request, "catalog.html", {"users": users})
+
+
 def create(request):
     form = CreateUser()
 

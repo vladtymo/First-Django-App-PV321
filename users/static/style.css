@@ -9,6 +9,12 @@ body>.container {
     flex-grow: 1;
 }
 
+.user-catalog .card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
 footer {
     text-align: center;
     padding: 20px;
