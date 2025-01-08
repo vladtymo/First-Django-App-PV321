@@ -3,8 +3,15 @@
 {% block header %}User Details{% endblock %}
 
 {% block content %}
-<div>
+<div class="user-details">
     <h3>User</h3>
+    <div>
+        {% if user.avatar %}
+        <img src="{{user.avatar.url}}" alt="{{user.name}}">
+        {% else %}
+        <img src="https://m.media-amazon.com/images/I/719uMEB4kiL._AC_UF1000,1000_QL80_.jpg" alt="{{user.name}}">
+        {% endif %}
+    </div>
     <p>ID: {{user.id}}</p>
     <p>Name: {{user.name}}</p>
     <p>Email: {{user.email}}</p>

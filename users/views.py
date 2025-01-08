@@ -39,7 +39,7 @@ def edit(request, id):
     form = EditUser(instance=user)
 
     if request.method == "POST":
-        form = EditUser(request.POST, instance=user)
+        form = EditUser(request.POST, request.FILES, instance=user)
 
         if form.is_valid():
             form.save()
