@@ -41,6 +41,9 @@ def edit(request, id):
     if request.method == "POST":
         form = EditUser(request.POST, request.FILES, instance=user)
 
+        if len(request.FILES) > 0 and user.avatar:
+            user.avatar.delete()
+
         if form.is_valid():
             form.save()
             return redirect("/users/home")
@@ -58,6 +61,9 @@ def delete(request, id):
 
     if user is not None:
         user.delete()
+
+    if user.avatar:
+        user.avatar.delete()
 
     return redirect("/users/home")
 
