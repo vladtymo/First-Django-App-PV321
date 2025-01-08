@@ -50,10 +50,6 @@ def edit(request, id):
 
 def details(request, id):
     user = User.objects.get(id=id)
-
-    print(user.avatar)
-    print(user.avatar.url)
-
     return render(request, "details.html", {"user": user, "return_url": "/users/home"})
 
 

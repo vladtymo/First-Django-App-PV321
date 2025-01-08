@@ -23,6 +23,7 @@ from first_app import settings
 from users import views
 
 urlpatterns = [
+    path("", views.catalog),
     path("admin/", admin.site.urls),
     path("about/", views.about),
     path("users/", include("users.urls")),
