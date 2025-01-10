@@ -28,9 +28,10 @@
             placeholder="Enter birthdate">
     </div>
     <div class="mb-3">
-        <label class="form-label">Username</label>
-        <input type="username" value={{form.username.value}} name="username" class="form-control"
-            placeholder="Enter username">
+        <label class="form-label">{{form.username.label}}</label>
+        {{form.username}}
+        <!-- <input type="username" value={{form.username.value}} name="username" class="form-control"
+            placeholder="Enter username"> -->
     </div>
     <div class="mb-3">
         <label class="form-label">{{form.position.label}}</label>

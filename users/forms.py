@@ -13,5 +13,6 @@ class EditUser(forms.ModelForm):
         model = User
         fields = "__all__"
         widgets = {
-            "position": forms.Select(attrs={"class": "form-select"})
+            "position": forms.Select(attrs={"class": "form-select"}),
+            "username": forms.TextInput(attrs={"class": "form-control"}),
         }
