@@ -1,3 +1,4 @@
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
@@ -27,7 +28,7 @@ def create(request):
             form.save()
             return redirect("/users/home")
 
-    return render(request, "create.html", {"form": form, "return_url": "/users/home"})
+    return render(request, "create.html", {"form": form, "positions": User.POSITIONS, "return_url": "/users/home"})
 
 
 def edit(request, id):
@@ -48,12 +49,19 @@ def edit(request, id):
             form.save()
             return redirect("/users/home")
 
-    return render(request, "edit.html", {"form": form, "return_url": "/users/home"})
+    return render(request, "edit.html", {"form": form, "positions": User.POSITIONS, "return_url": "/users/home"})
 
 
 def details(request, id):
     user = User.objects.get(id=id)
-    return render(request, "details.html", {"user": user, "return_url": "/users/home"})
+
+    return render(request, "details.html", {
+        "user": {
+            **model_to_dict(user),
+            "positionName": dict(user.POSITIONS).get(user.position)
+        }, 
+        "return_url": "/users/home"
+    })
 
 
 def delete(request, id):

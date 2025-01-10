@@ -12,3 +12,6 @@ class EditUser(forms.ModelForm):
     class Meta:
         model = User
         fields = "__all__"
+        widgets = {
+            "position": forms.Select(attrs={"class": "form-select"})
+        }
