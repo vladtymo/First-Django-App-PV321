@@ -1,6 +1,7 @@
 from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.contrib.auth.views import LoginView
 
 from users.forms import CreateUser, EditUser
 from users.models import User
@@ -78,3 +79,11 @@ def delete(request, id):
 
 def about(request):
     return HttpResponse("<h1>About Page!</h1>")
+
+class CustomLoginView(LoginView):
+    # template_name = 'login.html'
+    # authentication_form = CustomAuthenticationForm
+
+    def form_valid(self, form):
+        # Add your authentication logic here
+        return super().form_valid(form)

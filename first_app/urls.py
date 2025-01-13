@@ -25,6 +25,7 @@ from users import views
 urlpatterns = [
     path("", views.catalog),
     path("admin/", admin.site.urls),
+    path('login/', views.CustomLoginView.as_view(), name='login'),
     path("about/", views.about),
     path("users/", include("users.urls")),
 ]

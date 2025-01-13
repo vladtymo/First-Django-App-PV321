@@ -1,0 +1,15 @@
+{% extends 'admin/login.html' %}
+
+{% block content %}
+<h1>My Custom Login Page</h1>
+{{ block.super }}
+{{ form.tenant_identifier.label_tag }} {{ form.tenant_identifier }}
+
+<label for="id_birthdate">Birthdate:</label>
+{{ form.birthdate }}
+
+{% if form.errors %}
+<p class="error">Please correct the error below:</p>
+{{ form.errors }}
+{% endif %}
+{% endblock %}

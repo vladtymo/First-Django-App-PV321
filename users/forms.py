@@ -16,3 +16,8 @@ class EditUser(forms.ModelForm):
             "position": forms.Select(attrs={"class": "form-select"}),
             "username": forms.TextInput(attrs={"class": "form-control"}),
         }
+
+class UserForm(forms.ModelForm):
+     class Meta:
+        model = User
+        exclude = ['username']
