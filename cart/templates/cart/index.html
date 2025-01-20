@@ -1,0 +1,18 @@
+{% extends "_layout.html" %}
+
+{% block header %}User Cart{% endblock %}
+
+{% block content %}
+
+<ul class="list-group">
+    {% for i in users %}
+    <li class="list-group-item d-flex justify-content-between">
+        <span>{{i.name}} - {{i.email}} ... </span>
+        <span class="badge text-bg-primary">{{i.quantity}}</span>
+    </li>
+    {% endfor %}
+</ul>
+<div>
+    <a href="clear/" class="btn btn-secondary mt-3">Clear</a>
+</div>
+{% endblock %}

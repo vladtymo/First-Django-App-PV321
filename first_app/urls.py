@@ -28,6 +28,7 @@ urlpatterns = [
     path('login/', views.CustomLoginView.as_view(), name='login'),
     path("about/", views.about),
     path("users/", include("users.urls")),
+    path("cart/", include("cart.urls")),
 ]
 
 if settings.DEBUG:  # Only serve media files in development
